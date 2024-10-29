@@ -12,7 +12,7 @@ public class Calculator {
             System.out.print("Enter the second number: ");
             double num2 = scn.nextDouble();
 
-            System.out.print("Enter the operation (+, -, *, /): ");
+            System.out.print("Enter the operation (+, -, *, /, ^): ");
             char operation = scn.next().charAt(0);
 
             double result;
@@ -33,6 +33,13 @@ public class Calculator {
                         continue;
                     }
                     result = num1 / num2;
+                    break;
+                case '^':
+                    if (num1 == 0 && num2 == 0) {
+                        System.out.println("Error: 0 raised to the power of 0 is not allowed.");
+                        continue;
+                    }
+                    result = Math.pow(num1, num2);
                     break;
                 default:
                     System.out.println("Invalid operation, please try again.");
